@@ -29,15 +29,15 @@ type SOAPEnvelopeResponse struct {
 }
 
 type SOAPEnvelope struct {
-	XMLName xml.Name `xml:"soap:Envelope"`
-	XmlNS   string   `xml:"xmlns:soap,attr"`
+	XMLName xml.Name `xml:"s:Envelope"`
+	XmlNS   string   `xml:"xmlns:s,attr"`
 
 	Header *SOAPHeader
 	Body   SOAPBody
 }
 
 type SOAPHeader struct {
-	XMLName xml.Name `xml:"soap:Header"`
+	XMLName xml.Name `xml:"s:Header"`
 
 	Headers []interface{}
 }
@@ -48,7 +48,7 @@ type SOAPHeaderResponse struct {
 }
 
 type SOAPBody struct {
-	XMLName xml.Name `xml:"soap:Body"`
+	XMLName xml.Name `xml:"s:Body"`
 
 	Content interface{} `xml:",omitempty"`
 
@@ -514,7 +514,7 @@ func (s *Client) call(ctx context.Context, soapAction string, request, response 
 	}
 
 	var mmaBoundary string
-	if s.opts.mma{
+	if s.opts.mma {
 		mmaBoundary, err = getMmaHeader(res.Header.Get("Content-Type"))
 		if err != nil {
 			return err

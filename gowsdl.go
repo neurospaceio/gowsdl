@@ -583,7 +583,14 @@ func stripns(xsdType string) string {
 	return t
 }
 
+func msbingo(identifier string) string {
+	identifier = strings.Replace(identifier, "_x003C_", "", 1)
+	identifier = strings.Replace(identifier, "_x003E_k__BackingField", "", 1)
+	return identifier
+}
+
 func makePublic(identifier string) string {
+	identifier = msbingo(identifier)
 	if isBasicType(identifier) {
 		return identifier
 	}

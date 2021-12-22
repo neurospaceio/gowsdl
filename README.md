@@ -1,16 +1,19 @@
 # WSDL to Go
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/hooklift/gowsdl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![GoDoc](https://godoc.org/github.com/hooklift/gowsdl?status.svg)](https://godoc.org/github.com/hooklift/gowsdl)
-[![Build Status](https://travis-ci.org/hooklift/gowsdl.svg?branch=master)](https://travis-ci.org/hooklift/gowsdl)
-
 Generates Go code from a WSDL file.
+
+## Fork
+
+This is a fork of [hooklift gowsdl](https://github.com/hooklift/gowsdl) which we have modified such that we can use it with WCF 4.5 services.
+Modifications
+
+* Use s: instead of soap: as this seem to be the standard in WCF 4.5
+* Fix serialization / autoproperties errors which incorrectly gives us fields names starting with `_` which is not a public field in go (MSBingo func)
+* Fix import part to be https://github.com/neurospaceio/gowsdl
 
 ### Install
 
-* [Download binary release](https://github.com/hooklift/gowsdl/releases)
-* Download and build locally: `go get github.com/hooklift/gowsdl/...`
-* Install from Homebrew: `brew install gowsdl`
+* Download and build locally: `go get github.com/neurospaceio/gowsdl/...`
 
 ### Goals
 * Generate idiomatic Go code as much as possible
